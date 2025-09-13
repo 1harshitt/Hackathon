@@ -1,0 +1,190 @@
+@use './_variables.scss' as *;
+
+// Common Table Styles
+.table-list {
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+
+    .ant-table {
+        background: transparent;
+
+        &-thead>tr>th {
+            background: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 15px;
+            font-weight: 600;
+        }
+
+        &-tbody>tr {
+            &:hover {
+                td {
+                    background: var(--primary-light) !important;
+                }
+            }
+
+            >td {
+                border-bottom: 1px solid var(--border-color);
+                background: transparent;
+                padding: 10px 15px;
+                color: var(--text-primary);
+            }
+        }
+    }
+
+    .ant-pagination {
+        margin: 16px 0;
+        padding: 0 16px;
+    }
+
+    // Common action buttons styling
+    .action-btn {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        &.view-btn {
+            color: var(--primary-color);
+
+            &:hover {
+                background: var(--primary-light);
+                border-color: var(--primary-color);
+            }
+        }
+
+        &.edit-btn {
+            color: var(--text-warning);
+
+            &:hover {
+                background: var(--text-warning-light);
+                border-color: var(--text-warning);
+            }
+        }
+
+        &.delete-btn {
+            color: var(--text-error);
+
+            &:hover {
+                background: var(--text-error-light);
+                border-color: var(--text-error);
+            }
+        }
+    }
+
+    // Common empty state
+    .empty-state {
+        padding: 24px;
+    }
+}
+
+// Common empty state styling for both grid and list views
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    margin: 8px 0;
+    min-height: 200px;
+    width: 100%;
+    grid-column: 1 / -1; // For grid layouts
+
+    .ant-empty-image {
+        margin-bottom: 16px;
+        opacity: 0.6;
+    }
+
+    .ant-empty-description {
+        color: var(--text-secondary);
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+// Common name container styling (for items with badges/labels)
+.name-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .name {
+        font-weight: 600;
+        color: var(--text-primary);
+        text-transform: capitalize;
+    }
+
+    .system-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--primary-color);
+        background-color: var(--primary-light);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+}
+
+// Common Table Component Styles
+.common-table {
+    width: 100%;
+
+    .table-scroll-container {
+        width: 100%;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+
+            &:hover {
+                background: var(--text-secondary);
+            }
+        }
+    }
+
+    .ant-table-wrapper {
+        width: 100%;
+    }
+
+    // Responsive pagination
+    @media (max-width: 768px) {
+        .ant-pagination {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+
+            &-options {
+                margin-top: 8px;
+            }
+
+            &-total-text {
+                width: 100%;
+                text-align: center;
+                margin: 0 !important;
+            }
+        }
+    }
+}

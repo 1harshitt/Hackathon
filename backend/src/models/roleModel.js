@@ -1,0 +1,25 @@
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/db.js';
+import createBaseModel from './modelUtils/baseModel.js';
+
+const roleAttributes = {
+    role_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    permissions: {
+        type: DataTypes.JSON,
+        allowNull: true,
+        defaultValue: {}
+    },
+    isActive: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
+};
+
+const Role = createBaseModel(sequelize, 'role', roleAttributes);
+
+export default Role;
